@@ -13,8 +13,8 @@ public final class MemStore<T extends Base> implements Store<T> {
     }
 
     @Override
-    public T replace(String id, T model) {
-        return storage.replace(id, model);
+    public boolean replace(String id, T model) {
+        return storage.replace(id, model) != null;
     }
 
     @Override

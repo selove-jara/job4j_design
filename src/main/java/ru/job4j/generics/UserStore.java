@@ -10,7 +10,7 @@ public class UserStore implements Store<User> {
     }
 
     @Override
-    public User replace(String id, User model) {
+    public boolean replace(String id, User model) {
         return store.replace(id, model);
     }
 
