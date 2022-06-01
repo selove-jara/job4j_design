@@ -30,7 +30,7 @@ public class Generics {
         gen.printLowerBoundedWildCard(first);
         gen.printLowerBoundedWildCard(second);
         /*
-        // gen.printLowerBoundedWildCard(third);
+        gen.printLowerBoundedWildCard(third);
         Удален так как, ограничение снизу Predator
          */
     }
