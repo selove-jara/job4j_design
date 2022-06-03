@@ -1,6 +1,7 @@
 package ru.job4j.collection;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class SimpleLinkedList<E> implements LinkedList<E> {
@@ -45,6 +46,9 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
 
             @Override
             public E next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
                 E rsl = element.getValue();
                 element = element.getNext();
                 return rsl;
