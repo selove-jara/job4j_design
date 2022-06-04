@@ -31,6 +31,7 @@ public class ForwardLinked<T> implements Iterable<T> {
         T rsl = head.value;
         head = head.next;
         oldHead.next = null;
+        oldHead.value = null;
         return rsl;
 
     }
