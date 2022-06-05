@@ -33,7 +33,21 @@ public class ForwardLinked<T> implements Iterable<T> {
         oldHead.next = null;
         oldHead.value = null;
         return rsl;
+    }
 
+    public boolean revert() {
+        boolean temp = head != null && head.next != null;
+        Node<T> next = null;
+        if (temp) {
+            while (head != null) {
+                Node<T> nextNode = head.next;
+                head.next = next;
+                next = head;
+                head = nextNode;
+            }
+            head = next;
+        }
+        return temp;
     }
 
     @Override
@@ -61,6 +75,22 @@ public class ForwardLinked<T> implements Iterable<T> {
     private static class Node<T> {
         T value;
         Node<T> next;
+
+        public T getValue() {
+            return value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
 
         public Node(T value, Node<T> next) {
             this.value = value;
