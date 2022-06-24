@@ -1,28 +1,25 @@
 package ru.job4j.io;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Analizy {
     public void unavailable(String source, String target) {
-        List<String> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(source));
+             PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(target)))) {
             int count = 0;
             String line;
             while ((line = reader.readLine()) != null) {
                 if (!line.isEmpty()) {
                     String[] division = line.split(" ");
                     if (status(division) && count == 0) {
-                        data.add(division[1]);
                         count++;
+                        out.print(division[1] + "; ");
                     } else if (!status(division) && count > 0) {
-                        data.add(division[1]);
+                        out.println(division[1] + "; ");
                         count = 0;
                     }
                 }
             }
-            save(data, target);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,23 +33,6 @@ public class Analizy {
             rsl = false;
         }
         return rsl;
-    }
-
-    public static void save(List<String> data, String target) {
-        try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(target)))) {
-            int count = 0;
-            for (String element : data) {
-                if (count < 1) {
-                    out.print(element + "; ");
-                    count++;
-                } else {
-                    out.println(element + "; ");
-                    count = 0;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void main(String[] args) {
