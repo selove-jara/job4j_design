@@ -54,4 +54,12 @@ public class ConfigTest {
         Config config = new Config(path);
         config.load();
     }
+
+    @Test
+    public void whenPairException() {
+        thrown.expect(IllegalArgumentException.class);
+        String path = "./data/exception_value.properties";
+        Config config = new Config(path);
+        config.load();
+    }
 }

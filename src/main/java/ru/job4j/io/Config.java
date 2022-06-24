@@ -20,12 +20,12 @@ public class Config {
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             String line;
             while ((line = read.readLine()) != null) {
-                String[] division = line.split("=", 2);
                 if (!line.isEmpty() && !line.startsWith("#")) {
-                    if (division.length == 2 && !division[0].isEmpty() && !division[1].isEmpty()) {
-                        values.put(division[0], division[1]);
-                    } else {
+                    String[] division = line.split("=", 2);
+                    if (division.length != 2 || division[0].isEmpty() || division[1].isEmpty()) {
                         throw new IllegalArgumentException("Broken pair (key = value)");
+                    } else {
+                        values.put(division[0], division[1]);
                     }
                 }
             }
