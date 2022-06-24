@@ -24,9 +24,8 @@ public class Config {
                     String[] division = line.split("=", 2);
                     if (division.length != 2 || division[0].isEmpty() || division[1].isEmpty()) {
                         throw new IllegalArgumentException("Broken pair (key = value)");
-                    } else {
-                        values.put(division[0], division[1]);
                     }
+                    values.put(division[0], division[1]);
                 }
             }
         } catch (IOException e) {

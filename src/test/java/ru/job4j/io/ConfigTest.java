@@ -1,6 +1,5 @@
 package ru.job4j.io;
 
-
 import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
