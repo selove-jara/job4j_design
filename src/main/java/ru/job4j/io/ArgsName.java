@@ -10,20 +10,20 @@ public class ArgsName {
     public String get(String key) {
         String result = values.get(key);
         if (result == null) {
-            throw new IllegalArgumentException("Directory is missing");
+            throw new IllegalArgumentException("The key does not exist");
         }
         return result;
     }
 
     private void parse(String[] args) {
         if (args.length == 0) {
-            throw new IllegalArgumentException("Directory is missing");
+            throw new IllegalArgumentException("The array is empty");
         }
         for (String element : args) {
             validate(element);
             String[] temp = element.replaceFirst("-", "").split("=", 2);
             if (temp.length != 2 || temp[0].isEmpty() || temp[1].isEmpty()) {
-                throw new IllegalArgumentException("Directory is missing");
+                throw new IllegalArgumentException("One of the arguments is missing");
             }
             values.put(temp[0], temp[1]);
 
@@ -32,10 +32,10 @@ public class ArgsName {
 
     private void validate(String element) {
         if (!element.startsWith("-")) {
-            throw new IllegalArgumentException("Directory is missing");
+            throw new IllegalArgumentException("The template is broken, the \"-\" symbol is missing");
         }
         if (!element.contains("=")) {
-            throw new IllegalArgumentException("Directory is missing");
+            throw new IllegalArgumentException("The template is broken, the \"=\" symbol is missing");
         }
     }
 
