@@ -24,9 +24,9 @@ public class Search {
     public static void validate(String[] args) {
         File path = new File(args[0]);
         if (args.length < 2) {
-            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
+            throw new IllegalArgumentException("enter path to file to search: C:\\projects\\job4j_design");
         }
-        if (path.isAbsolute() && !path.isDirectory()) {
+        if (!path.isDirectory()) {
             throw new IllegalArgumentException("Directory is missing");
         }
 
