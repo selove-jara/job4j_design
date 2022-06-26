@@ -42,17 +42,17 @@ public class ArgsNameTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void whenFirstCharacterMissing() { // -
+    public void whenFirstCharacterMissing() {
         ArgsName jvm = ArgsName.of(new String[]{"Xmx=512"});
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void whenSymbolMissing() { //=
+    public void whenSymbolMissing() {
         ArgsName jvm = ArgsName.of(new String[]{"-Xmx:512"});
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void whenKeyEmpty() { //key
+    public void whenKeyEmpty() {
         ArgsName jvm = ArgsName.of(new String[]{"-=512"});
     }
 }
