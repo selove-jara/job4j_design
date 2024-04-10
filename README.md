@@ -11,10 +11,14 @@ List
 Set
 Map
 Tree
+
+
 Ввод - вывод:
 Socket
 Логгирование
 Сериализация
+
+
 SQL, JDBC:
 Настройка PostgreSQL
 Create Update Insert
@@ -23,12 +27,16 @@ Outer join
 JDBC
 Liquibase
 Проект. Агрегатор Java вакансий
+
+
 Garbage Collection:
 Понятие сборщик мусора
 Виды сборщиков мусоров
 Профилирование приложения
 Типы ссылок и коллекции на soft weak ссылках
 Java Memory Model
+
+
 Чистая архитектура:
 TDD
 SRP
