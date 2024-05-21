@@ -3,9 +3,11 @@ package ru.job4j.io;
 import java.io.*;
 
 public class Analysis {
-    private boolean status = true;
 
-    public void unavailable(String source, String target) {
+    private static boolean status = true;
+
+    public static void unavailable(String source, String target) {
+
         try (BufferedReader reader = new BufferedReader(new FileReader(source));
              PrintWriter output = new PrintWriter(
                      new BufferedOutputStream(
@@ -29,6 +31,6 @@ public class Analysis {
 
     public static void main(String[] args) {
         Analysis analysis = new Analysis();
-        analysis.unavailable("data/server.log", "data/target.csv");
+        unavailable("data/server.log", "data/target.csv");
     }
 }
