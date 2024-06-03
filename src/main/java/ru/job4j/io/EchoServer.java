@@ -18,16 +18,19 @@ public class EchoServer {
                     output.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                     String string = input.readLine();
                     out.println(string);
-                    if ("msg=Hello".contains(string)) {
-                        output.write("Приветствуем Вас!".getBytes());
-                    }
-                    if (string.contains("msg=Bye")) {
+                    if (string.contains("msg=Hello")) {
+                        output.write("Hello, dear friend.".getBytes());
+                    } else if (string.contains("msg=Exit")) {
                         output.write("Сервер закрыт!".getBytes());
                         server.close();
+                    } else if (string.contains("msg=What")) {
+                        output.write("What?".getBytes());
                     }
                     output.flush();
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
