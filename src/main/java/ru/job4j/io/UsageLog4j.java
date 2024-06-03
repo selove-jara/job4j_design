@@ -13,6 +13,22 @@ public class UsageLog4j {
         LOG.info("info message");
         LOG.warn("warn message");
         LOG.error("error message");
+        System.out.println();
+
+        String name = "Andrey Morozov";
+        int age = 26;
+        LOG.debug("User info name : {}, age : {}", name, age);
+        System.out.println();
+
+        int i = 5;
+        short s = 3;
+        byte b = 1;
+        long l = 4L;
+        float f = 2F;
+        double d = 3D;
+        char ch = 'x';
+        boolean bool = true;
+        LOG.debug("int - {};  short - {}; byte - {}; long - {}; float - {}; double - {}; char - {}; boolean - {};", i, s, b, l, f, d, ch, bool);
     }
 }
 
