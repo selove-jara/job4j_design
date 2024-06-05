@@ -1,0 +1,10 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<family surname="Morozov">
+    <person name="Andrey" age="26"/>
+    <person1 name="Неизвестность" age="26"/>
+    <marriagees marriage="true" termMarriage="3"/>
+    <childrens>
+        <children>Петя</children>
+        <children>Вася</children>
+    </childrens>
+</family>
