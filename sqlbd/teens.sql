@@ -13,8 +13,10 @@ insert into teens(name, gender) values ('Ксения', 'жен');
 insert into teens(name, gender) values ('Иван', 'муж');
 insert into teens(name, gender) values ('Виктория', 'жен');
 insert into teens(name, gender) values ('Анна', 'жен');
+insert into teens(name, gender) values ('Женя', 'жен');
+insert into teens(name, gender) values ('Женя', 'муж');
 
 select m.name, w.name
 	from teens m
 	cross join teens w
-where m.name < w.name and m.gender != w.gender;
+where m.name <= w.name and m.gender != w.gender;
