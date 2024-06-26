@@ -19,4 +19,4 @@ insert into teens(name, gender) values ('Женя', 'муж');
 select m.name, w.name
 	from teens m
 	cross join teens w
-where m.name <= w.name and m.gender != w.gender;
+where m.gender = 'муж' and w.gender = 'жен';
