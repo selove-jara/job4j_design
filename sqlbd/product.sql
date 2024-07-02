@@ -90,7 +90,8 @@ returns trigger as
 $$
     begin
         update products
-        set price = price + price * 0.2;
+        NEW.price = price + price * 0.2;
+         where id = new.id;
         return new;
     end;
 $$
