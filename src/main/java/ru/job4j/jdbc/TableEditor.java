@@ -31,12 +31,10 @@ public class TableEditor implements AutoCloseable {
         }
     }
 
-    //создает пустую таблицу без столбцов с указанным именем
     public void createTable(String tableName) {
         executeStatement(String.format("CREATE TABLE %s ();", tableName));
     }
 
-    //удаляет таблицу по указанному имени
     public void dropTable(String tableName) {
         executeStatement(String.format("DROP TABLE %s;", tableName));
     }
