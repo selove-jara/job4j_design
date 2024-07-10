@@ -26,9 +26,8 @@ public class ImportDB {
                 String[] parts = line.split(";");
                 if (!parts[0].isEmpty() && !parts[1].isEmpty()) {
                     users.add(new User(parts[0].trim(), parts[1].trim()));
-                } else {
-                    throw new IllegalArgumentException("Each line must contain exactly 2 non-empty elements separated by ';'");
                 }
+                throw new IllegalArgumentException("Each line must contain exactly 2 non-empty elements separated by ';'");
             });
         }
         return users;
