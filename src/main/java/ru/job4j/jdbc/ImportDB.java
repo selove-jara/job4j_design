@@ -24,10 +24,10 @@ public class ImportDB {
         try (BufferedReader reader = new BufferedReader(new FileReader(dump))) {
             reader.lines().forEach(line -> {
                 String[] parts = line.split(";");
-                if (!parts[0].isEmpty() && !parts[1].isEmpty()) {
-                    users.add(new User(parts[0].trim(), parts[1].trim()));
+                if (parts[0].isEmpty() || parts[1].isEmpty()) {
+                    throw new IllegalArgumentException("Each line must contain exactly 2 non-empty elements separated by ';'");
                 }
-                throw new IllegalArgumentException("Each line must contain exactly 2 non-empty elements separated by ';'");
+                users.add(new User(parts[0].trim(), parts[1].trim()));
             });
         }
         return users;
@@ -41,7 +41,7 @@ public class ImportDB {
                 config.getProperty("jdbc.password")
         )) {
             for (User user : users) {
-                try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO users ...")) {
+                try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO users(name, email) values (?, ?);")) {
                     preparedStatement.setString(1, user.name);
                     preparedStatement.setString(2, user.email);
                     preparedStatement.execute();
