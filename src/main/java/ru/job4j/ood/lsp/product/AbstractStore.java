@@ -18,5 +18,10 @@ public abstract class AbstractStore implements Store {
 
     @Override
     public abstract boolean accept(Food food);
+
+    @Override
+    public void clear() {
+        storage.clear();
+    }
 }
 
